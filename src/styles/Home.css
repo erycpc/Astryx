@@ -1,29 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap');
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-
-body {
-  font-family: 'Inter', sans-serif;
-  background-color: #0a0a0a;
-  color: #e8e8e8;
-  overflow-x: hidden;
-  min-height: 100vh;
-}
-
 .home-container {
   min-height: 100vh;
   background: linear-gradient(180deg, #646464 0%, #1a1a1a 100%);
   position: relative;
   overflow-x: hidden; 
+  font-family: Inter, sans-serif;
+  background-color: #0a0a0a;
+  color: #e8e8e8;
 }
 
 /* Film grain effect */
@@ -109,13 +91,13 @@ body {
   z-index: 1;
 }
 
-.btn:first-of-type {
+.btn--primary {
   background: linear-gradient(135deg, #d4af37 0%, #f4e4c1 100%);
   color: #0a0a0a;
   box-shadow: 0 8px 30px rgba(212, 175, 55, 0.3);
 }
 
-.btn:first-of-type::before {
+.btn--primary::before {
   content: '';
   position: absolute;
   top: 0;
@@ -128,22 +110,22 @@ body {
   transition: opacity 0.4s ease;
 }
 
-.btn:first-of-type:hover::before {
+.btn--primary:hover::before {
   opacity: 1;
 }
 
-.btn:first-of-type:hover {
+.btn--primary:hover {
   transform: translateY(-2px);
   box-shadow: 0 12px 40px rgba(212, 175, 55, 0.4);
 }
 
-.btn:last-of-type {
+.btn--secondary {
   background: transparent;
   color: #d4af37;
   border: 2px solid #d4af37;
 }
 
-.btn:last-of-type::before {
+.btn--secondary::before {
   content: '';
   position: absolute;
   top: 0;
@@ -155,11 +137,11 @@ body {
   transition: left 0.4s ease;
 }
 
-.btn:last-of-type:hover::before {
+.btn--secondary:hover::before {
   left: 0;
 }
 
-.btn:last-of-type:hover {
+.btn--secondary:hover {
   color: #f4e4c1;
   border-color: #f4e4c1;
   transform: translateY(-2px);
@@ -620,14 +602,20 @@ body {
   color: rgba(212, 175, 55, 0.95);
   opacity: 0;
   transition: opacity 0.4s ease, transform 0.4s ease;
-  pointer-events: none;
+  pointer-events: auto;
   z-index: 3;
   text-shadow: 0 6px 25px rgba(0, 0, 0, 0.9);
+  cursor: pointer;
 }
 
-.work-preview-card:hover::after {
+.work-preview-card:hover::after,
+.work-preview-card.is-playing::after {
   opacity: 1;
   transform: translate(-50%, -50%) scale(1.1);
+}
+
+.work-preview-card.is-playing::after {
+  content: '⏸';
 }
 
 /* Responsive for Our Work Preview */

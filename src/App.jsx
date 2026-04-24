@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 // Importing components for different routes
 import Home from './components/Home'
 
@@ -6,13 +6,14 @@ import Home from './components/Home'
 // importing styles for different components
 import './styles/Home.css'
 
+const router = createBrowserRouter([
+  { path: "/", element: <Home /> },
+  
+])
+
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
-    </BrowserRouter>
+    <RouterProvider router={router} />
   )
 }
 
