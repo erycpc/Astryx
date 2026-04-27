@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import andrewImg from '../assets/Andrew.jpg';
 import ericImg from '../assets/eric.jpg';
 
@@ -72,7 +73,7 @@ const About = () => {
 
         <div className="about-cta">
           <p className="about-cta-text">
-            Let's create something that matters. <a href="/contact-us" className="about-cta-link">Reach out:</a> we'd love to hear your story.
+            Let's create something that matters. <Link to="/contact-us" className="about-cta-link">Reach out:</Link> we'd love to hear your story.
           </p>
         </div>
       </div>
