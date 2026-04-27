@@ -1,5 +1,5 @@
-import React from 'react';
-import '../styles/About.css';
+import andrewImg from '../assets/Andrew.jpg';
+import ericImg from '../assets/eric.jpg';
 
 const About = () => {
   return (
@@ -16,14 +16,38 @@ const About = () => {
         <div className="about-story">
           <h3 className="about-heading">Our Story</h3>
           <p className="about-paragraph">
-            Astryx was born in 2025 in the heart of Nairobi — not from a business plan, but from a shared obsession with truth. Our founders had grown tired of formulaic content and empty spectacle. They wanted to return to something rawer: stories that matter, voices that deserve to be heard.
+            Astryx was born in 2025 in the heart of Nairobi, not from a business plan, but from a shared obsession with truth. Our founders had grown tired of formulaic content and empty spectacle. They wanted to return to something rawer: stories that matter, voices that deserve to be heard.
           </p>
           <p className="about-paragraph">
-            What drives us is simple — the belief that every person carries a story worth telling. Whether it's a quiet documentary about a street vendor's dream or a short film exploring the complexities of modern relationships, we approach each project with the same reverence. We're not interested in trends. We're interested in authenticity.
+            What drives us is simple, the belief that every person carries a story worth telling. Whether it's a quiet documentary about a street vendor's dream or a short film exploring the complexities of modern relationships, we approach each project with the same reverence. We're not interested in trends. We're interested in authenticity.
           </p>
           <p className="about-paragraph">
-            Nairobi is our canvas, but our stories don't recognize borders. From urban rooftops to remote villages, we find beauty in the in-between spaces — the moments where cultures collide, where generations intersect, where the ordinary becomes extraordinary.
+            Nairobi is our canvas, but our stories don't recognize borders. From urban rooftops to remote villages, we find beauty in the in-between spaces, the moments where cultures collide, where generations intersect, where the ordinary becomes extraordinary.
           </p>
+        </div>
+
+        <div className="about-founders">
+          <h3 className="about-heading">Founders</h3>
+          <div className="founders-grid">
+            <div className="founder-card">
+              <div className="founder-image">
+                <img src={andrewImg} alt="Andrew - Co-Founder" />
+              </div>
+              <div className="founder-info">
+                <h4 className="founder-name">Andrew</h4>
+                <p className="founder-role">Co-Founder & Creative Director</p>
+              </div>
+            </div>
+            <div className="founder-card">
+              <div className="founder-image">
+                <img src={ericImg} alt="Eric - Co-Founder" />
+              </div>
+              <div className="founder-info">
+                <h4 className="founder-name">Eric</h4>
+                <p className="founder-role">Co-Founder & Lead Producer</p>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className="about-services">
@@ -48,7 +72,7 @@ const About = () => {
 
         <div className="about-cta">
           <p className="about-cta-text">
-            Let's create something that matters. <a href="/contact" className="about-cta-link">Reach out</a> — we'd love to hear your story.
+            Let's create something that matters. <a href="/contact-us" className="about-cta-link">Reach out:</a> we'd love to hear your story.
           </p>
         </div>
       </div>
