@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom'
 // Importing components for different routes
 import Home from './components/Home'
@@ -6,6 +7,7 @@ import OurWork from './components/OurWork'
 import Contact from './components/Contact'
 import Navigation from './components/Navigation'
 import About from './components/About'
+import SplashScreen from './components/SplashScreen'
 
 
 // importing styles for different components
@@ -15,6 +17,7 @@ import './styles/About.css'
 import './styles/BehindTheScenes.css'
 import './styles/Contact.css'
 import './styles/OurWork.css'
+import './styles/SplashScreen.css'
 
 const router = createBrowserRouter([
   {
@@ -36,9 +39,16 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
+  const [showSplash, setShowSplash] = useState(true);
+
   return (
-    <RouterProvider router={router} />
-  )
+    <>
+      {showSplash && (
+        <SplashScreen onComplete={() => setShowSplash(false)} />
+      )}
+      <RouterProvider router={router} />
+    </>
+  );
 }
 
 export default App;
