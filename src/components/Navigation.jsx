@@ -64,6 +64,7 @@ function Navigation() {
       <li><NavLink to="/" end onClick={closeMenu}>Home</NavLink></li>
       <li><NavLink to="/behind-the-scenes" onClick={closeMenu}>Behind The Scenes</NavLink></li>
       <li><NavLink to="/our-work" onClick={closeMenu}>Our Work</NavLink></li>
+      <li><NavLink to="/about-us" onClick={closeMenu}>About Us</NavLink></li>
       <li><NavLink to="/contact-us" onClick={closeMenu}>Contact Us</NavLink></li>
     </ul>
   </nav>
