@@ -1,0 +1,329 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap');
+
+.work-container {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%);
+  padding: 120px 50px 80px;
+  position: relative;
+}
+
+/* Film grain effect */
+.work-container::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255, 255, 255, 0.03) 2px, rgba(255, 255, 255, 0.03) 4px);
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.4;
+}
+
+/* Page Title */
+.work-container h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 900;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 70px;
+  letter-spacing: -1px;
+  background: linear-gradient(180deg, #ffffff 0%, #d4d4d4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+  z-index: 10;
+}
+
+/* Accent line under title */
+.work-container h1::after {
+  content: '';
+  display: block;
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #d4af37, transparent);
+  margin: 25px auto 0;
+}
+
+/* Grid Layout */
+.work-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+/* Card Container */
+.work-card {
+  background: rgba(20, 20, 20, 0.6);
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  border-radius: 2px;
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  backdrop-filter: blur(10px);
+}
+
+.work-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.work-card:hover {
+  transform: translateY(-12px);
+  border-color: rgba(212, 175, 55, 0.5);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7);
+}
+
+.work-card:hover::before {
+  opacity: 1;
+}
+
+/* Video Styling */
+.work-card video {
+  width: 100%;
+  height: 550px;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.85) contrast(1.1) saturate(1.05);
+  transition: filter 0.6s ease, transform 0.6s ease;
+}
+
+.work-card:hover video {
+  filter: brightness(1) contrast(1.2) saturate(1.1);
+  transform: scale(1.02);
+}
+
+/* Info Section */
+.work-info {
+  padding: 45px 50px 50px;
+  background: rgba(10, 10, 10, 0.85);
+  position: relative;
+  z-index: 2;
+}
+
+.work-info h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 18px;
+  letter-spacing: -0.5px;
+  transition: color 0.3s ease;
+}
+
+.work-card:hover .work-info h3 {
+  color: #d4af37;
+}
+
+.work-info p {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #b8b8b8;
+  font-weight: 300;
+  letter-spacing: 0.3px;
+}
+
+/* Play button overlay (appears on hover) */
+.work-card::after {
+  content: '▶';
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 6rem;
+  color: rgba(212, 175, 55, 0.95);
+  opacity: 0;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  pointer-events: none;
+  z-index: 3;
+  text-shadow: 0 6px 30px rgba(0, 0, 0, 0.9);
+}
+
+.work-card:hover::after {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+/* Featured Film Badge (optional - add to HTML if needed) */
+.featured-badge {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  background: linear-gradient(135deg, #d4af37 0%, #f4e4c1 100%);
+  color: #0a0a0a;
+  padding: 10px 25px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  z-index: 4;
+  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.5);
+}
+
+/* Film Details (optional enhancement) */
+.film-meta {
+  display: flex;
+  gap: 25px;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.film-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.film-meta-label {
+  font-size: 0.75rem;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+
+.film-meta-value {
+  font-size: 0.95rem;
+  color: #d4af37;
+  font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .work-container {
+    padding: 110px 35px 70px;
+  }
+
+  .work-container h1 {
+    margin-bottom: 60px;
+  }
+
+  .work-grid {
+    gap: 60px;
+  }
+
+  .work-card video {
+    height: 420px;
+  }
+
+  .work-info {
+    padding: 38px 35px 40px;
+  }
+
+  .work-info h3 {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+  }
+
+  .work-info p {
+    font-size: 1.08rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .work-container {
+    padding: 100px 25px 60px;
+  }
+
+  .work-container h1 {
+    font-size: 2.2rem;
+    margin-bottom: 50px;
+  }
+
+  .work-grid {
+    gap: 45px;
+  }
+
+  .work-card video {
+    height: 300px;
+  }
+
+  .work-info {
+    padding: 30px 25px 35px;
+  }
+
+  .work-info h3 {
+    font-size: 1.9rem;
+    margin-bottom: 12px;
+  }
+
+  .work-info p {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .work-card::after {
+    font-size: 4.5rem;
+    top: 35%;
+  }
+
+  .featured-badge {
+    top: 18px;
+    right: 18px;
+    padding: 8px 20px;
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .work-container {
+    padding: 90px 20px 50px;
+  }
+
+  .work-container h1 {
+    font-size: 1.9rem;
+    margin-bottom: 40px;
+  }
+
+  .work-grid {
+    gap: 40px;
+  }
+
+  .work-card video {
+    height: 260px;
+  }
+
+  .work-info {
+    padding: 25px 22px 30px;
+  }
+
+  .work-info h3 {
+    font-size: 1.7rem;
+    margin-bottom: 10px;
+  }
+
+  .work-info p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .work-card::after {
+    font-size: 3.5rem;
+  }
+
+  .featured-badge {
+    top: 15px;
+    right: 15px;
+    padding: 7px 16px;
+    font-size: 9px;
+  }
+}
